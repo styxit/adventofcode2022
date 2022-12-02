@@ -55,8 +55,7 @@ abstract class AbstractSolution
         $namespaceSections = explode('\\', get_class($this));
 
         // Extract the day from the solution namespace.
-        $day = strtolower($namespaceSections[1]);
-
+        $day = $namespaceSections[1];
         // Construct the full path to the input file.
         $inputFile = $example ? 'example.txt' : 'input.txt';
 
