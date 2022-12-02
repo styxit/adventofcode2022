@@ -22,12 +22,9 @@ enum Shape: int
     public static function fromLetter(string $letter): Shape
     {
         return match ($letter) {
-            'A' => Shape::ROCK,
-            'B' => Shape::PAPER,
-            'C' => Shape::SCISSORS,
-            'X' => Shape::ROCK,
-            'Y' => Shape::PAPER,
-            'Z' => Shape::SCISSORS,
+            'A', 'X' => Shape::ROCK,
+            'B', 'Y' => Shape::PAPER,
+            'C', 'Z' => Shape::SCISSORS,
         };
     }
 }
