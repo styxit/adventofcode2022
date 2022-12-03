@@ -7,39 +7,29 @@ abstract class AbstractSolution
     /**
      * @var mixed The solution to part 1 of the day.
      */
-    public $part1 = 0;
+    public int $part1 = 0;
 
     /**
      * @var mixed The solution to part 2 of the day.
      */
-    public $part2 = 0;
+    public int $part2 = 0;
 
     /**
      * @var \Styxit\Input The input to pass to the solution.
      */
-    public $input;
+    public readonly Input $input;
 
     /**
      * @var string Define where all the inputs are located.
      */
-    private $inputRoot = __DIR__.'/../puzzles/';
+    private string $inputRoot = __DIR__.'/../puzzles/';
 
     /**
      * AbstractSolution constructor.
      */
-    public function __construct()
+    public function __construct(bool $exampleInput = false)
     {
-        $this->loadInput();
-    }
-
-    public function loadInput()
-    {
-        $this->input = new Input($this->getInputFilePath());
-    }
-
-    public function loadExampleInput()
-    {
-        $this->input = new Input($this->getInputFilePath(true));
+        $this->input = new Input($this->getInputFilePath($exampleInput));
     }
 
     /**

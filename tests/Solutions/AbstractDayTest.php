@@ -2,6 +2,7 @@
 
 namespace Tests\Solutions;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractDayTest extends TestCase
@@ -29,15 +30,14 @@ abstract class AbstractDayTest extends TestCase
      */
     public function testExample()
     {
-        $solution = $this->getSolutionClass();
-        $solution->loadExampleInput();
+        $solution = $this->getSolutionClass(true);
         $solution->execute();
 
         $this->assertSame($this->exampleSolution1, $solution->part1, 'Example part 1 failed.');
         $this->assertSame($this->exampleSolution2, $solution->part2, 'Example part 2 failed.');
     }
 
-    private function getSolutionClass()
+    private function getSolutionClass(bool $withExampleInput = false)
     {
         $solutionClassName = str_replace(
             [
@@ -51,6 +51,10 @@ abstract class AbstractDayTest extends TestCase
             $this::class
         );
 
-        return new $solutionClassName();
+        try {
+            return new $solutionClassName($withExampleInput);
+        } catch(FileNotFoundException $exception) {
+            $this->markTestSkipped('Skipping test; Input unavailable.');
+        }
     }
 }

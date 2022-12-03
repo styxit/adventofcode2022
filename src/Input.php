@@ -2,6 +2,7 @@
 
 namespace Styxit;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Collection;
 
 class Input
@@ -23,6 +24,10 @@ class Input
      */
     public function __construct($input)
     {
+        if (!file_exists($input)) {
+            throw new FileNotFoundException('Input file does not exists.');
+        }
+        
         $this->plain = trim(file_get_contents($input));
         $this->lines = explode(PHP_EOL, $this->plain);
     }
