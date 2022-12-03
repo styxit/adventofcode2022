@@ -53,7 +53,7 @@ abstract class AbstractDayTest extends TestCase
 
         try {
             return new $solutionClassName($withExampleInput);
-        } catch(FileNotFoundException $exception) {
+        } catch (FileNotFoundException $exception) {
             $this->markTestSkipped('Skipping test; Input unavailable.');
         }
     }

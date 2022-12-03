@@ -27,7 +27,7 @@ class Input
         if (!file_exists($input)) {
             throw new FileNotFoundException('Input file does not exists.');
         }
-        
+
         $this->plain = trim(file_get_contents($input));
         $this->lines = explode(PHP_EOL, $this->plain);
     }
