@@ -23,6 +23,14 @@ Solve the puzzle with
  ./aoc solve 28
 ```
 
+### Example data
+The example data for the puzzle can be stored in `puzzles/Day28/example.txt`. After that, use the `--example` option to use the example data as input.
+
+Solve the puzzle using example data.
+```
+ ./aoc solve 28 --example
+```
+
 ## 🐞 Testing
 For each solution a test can be written to make sure the output is correct. by extending the `AbstractDayTest` only the Class to be tested + the solutions need to be defined. To test the solution for a new day, add a test in the `tests/Solutions` dir.
 

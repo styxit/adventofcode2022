@@ -21,6 +21,7 @@ class SolvePuzzleCommand extends Command
     {
         $this->setDescription('Solve a puzzle for a specific day.');
         $this->addArgument('day', InputArgument::REQUIRED, 'The day to solve.');
+        $this->addOption('example');
     }
 
     /**
@@ -39,7 +40,7 @@ class SolvePuzzleCommand extends Command
         $solutionClass = $this->getDaySolution($day);
 
         // Create solution instance and run it.
-        $solution = new $solutionClass();
+        $solution = new $solutionClass($input->getOption('example'));
         $solution->execute();
 
         $output->writeln('Solution to part 1: '.$solution->part1);
