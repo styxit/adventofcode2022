@@ -7,12 +7,12 @@ abstract class AbstractSolution
     /**
      * @var mixed The solution to part 1 of the day.
      */
-    public int $part1 = 0;
+    public int|string $part1 = 0;
 
     /**
      * @var mixed The solution to part 2 of the day.
      */
-    public int $part2 = 0;
+    public int|string $part2 = 0;
 
     /**
      * @var \Styxit\Input The input to pass to the solution.
