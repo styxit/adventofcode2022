@@ -15,7 +15,7 @@ class Solution extends AbstractSolution
      */
     public function execute()
     {
-        $letters = collect(str_split($this->input->collection()->first()));
+        $letters = collect(str_split($this->input->plain()));
 
         $this->part1 = $this->findUniqueWindowPosition($letters, self::PACKET_MARKER_SIZE);
         $this->part2 = $this->findUniqueWindowPosition($letters, self::MESSAGE_MARKER_SIZE);
