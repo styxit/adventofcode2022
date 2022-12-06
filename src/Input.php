@@ -28,7 +28,7 @@ class Input
             throw new FileNotFoundException('Input file does not exists.');
         }
 
-        $this->plain = trim(file_get_contents($input));
+        $this->plain = trim(file_get_contents($input), "\n\r\t\v\x00");
         $this->lines = explode(PHP_EOL, $this->plain);
     }
 
